@@ -10,7 +10,7 @@ public class RandomPermutation
    * Initial conditions: length cannot be negative
    */
   public static ArrayList<Horse> next(ArrayList<Horse> horses) { 
-    int length = horses.size();
+    int length = horses.size(); 
    
       
     int[] r = new int[length];
@@ -26,7 +26,7 @@ public class RandomPermutation
       p[pos] = p[n-1];
     }
     ArrayList<Horse> example = new ArrayList<Horse>();
-    for (int i : r) {
+    for (int i : r) { //adds each horse in a random way
       example.add(horses.get(i - 1));
     }
       // debug: System.out.println(java.util.Arrays.toString(r));
