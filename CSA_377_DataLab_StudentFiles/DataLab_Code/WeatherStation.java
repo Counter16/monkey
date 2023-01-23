@@ -9,7 +9,7 @@ public class WeatherStation {
    private double lat;
    private double lng;
    
-   WeatherStation(String name, String id, String state, double lat, double lng) {
+   public WeatherStation(String name, String id, String state, double lat, double lng) {
       this.name = name;
       this.id = id;
       this.lat = lat;
@@ -26,10 +26,17 @@ public class WeatherStation {
    public String getName() { 
       return name;
    }
+
+   public double getLat() {
+      return lat;
+   }
    
    /* Determine if this weather station is located in the given state */
    public boolean isLocatedInState(String st) {
       return this.state.equals(st);
    }
-   
+   @Override
+   public String toString() {
+      return "WeatherStation [name=" + name + ", id=" + id + ", state=" + state + ", lat=" + lat + ", lng=" + lng + "]";
+   }
 }

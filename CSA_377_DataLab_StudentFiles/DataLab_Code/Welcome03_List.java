@@ -3,6 +3,8 @@
  */
 
 import core.data.*;
+
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,15 +15,31 @@ public class Welcome03_List {
              "station/station_id", "station/state",
              "station/latitude", "station/longitude");
       System.out.println("Total stations: " + allstns.size());
-      
+
+      WeatherStation temp = allstns.get(0);
+      for(int i = 1; i < allstns.size(); i++){
+         WeatherStation currentStation = allstns.get(i);
+         if(currentStation.getLat() < temp.getLat()){
+            temp = currentStation;
+         }
+      }
+      System.out.println(temp);
+
       Scanner sc = new Scanner(System.in);
       System.out.println("Enter a state abbreviation: ");
       String state = sc.next();
       System.out.println("Stations in " + state);
-      for (WeatherStation ws : allstns) {
-         if (ws.isLocatedInState(state)) {
-            System.out.println("  " + ws.getId() + ": " + ws.getName());
+         
+      WeatherStation temp1 = allstns.get(0);
+      for(int j = 1; j < allstns.size(); j++){
+         WeatherStation currentStation = allstns.get(j);
+         if (currentStation.isLocatedInState(state)) {
+            if(currentStation.getLat() < temp1.getLat()){
+               temp1 = currentStation;
+            }
          }
+         
       }
+      System.out.println(temp1);
    }
 }
